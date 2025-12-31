@@ -14,6 +14,7 @@
     "@prisma/client": "^6.19.1",
     "clerk": "^0.8.3",
     "next": "16.1.1",
+    "openai": "^6.15.0",
     "prisma": "^6.19.1",
     "react": "19.2.3",
     "react-dom": "19.2.3"
