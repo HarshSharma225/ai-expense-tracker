@@ -1,30 +1,33 @@
-import { currentUser } from "@clerk/nextjs/server";
-import { db } from "./db";
+import { currentUser } from '@clerk/nextjs/server';
+import { db } from './db';
 
-export const checkUser= async ()=>{
-    const user = await currentUser();
-    if(!user){
-        return null;
-    }
+export const checkUser = async () => {
+  const user = await currentUser();
 
-    const loggedInUser = await db.user.findUnique({
-        where: {
-            clerkUserId : user.id
-        }
-    });
+  if (!user) {
+    console.log("no user fonud")
+    return null;
+  }
 
-    if(loggedInUser){
-        return loggedInUser;
-    }
+  console.log(user)
+  const loggedInUser = await db.user.findUnique({
+    where: {
+      clerkUserId: user.id,
+    },
+  });
 
-    const newUser = await db.user.create({
-        data: {
-            clerkUserId: user.id,
-            name: `${user.firstName} ${user.lastName}`,
-            imageUrl: user.imageUrl,
-            email: user.emailAddresses[0]?.emailAddress,
-        },
-    });
+  if (loggedInUser) {
+    return loggedInUser;
+  }
 
-    return newUser; 
-}
+  const newUser = await db.user.create({
+    data: {
+      clerkUserId: user.id,
+      name: `${user.firstName} ${user.lastName}`,
+      imageUrl: user.imageUrl,
+      email: user.emailAddresses[0]?.emailAddress,
+    },
+  });
+
+  return newUser;
+};

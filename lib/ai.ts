@@ -17,6 +17,8 @@ const openai = new OpenAI({
   },
 });
 
+
+
 export interface ExpenseRecord {
   id: string;
   amount: number;
@@ -68,7 +70,7 @@ export async function generateExpenseInsights(
     Return only valid JSON array, no additional text.`;
 
     const completion = await openai.chat.completions.create({
-      model: 'deepseek/deepseek-r1-0528:free',
+      model: "google/gemma-3n-e4b-it:free",
       messages: [
         {
           role: 'system',

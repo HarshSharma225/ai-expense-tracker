@@ -7,7 +7,7 @@ interface RecordData {
   text: string;
   amount: number;
   category: string;
-  date: string; // Added date field
+  date: string; 
 }
 
 interface RecordResult {
@@ -19,9 +19,8 @@ async function addExpenseRecord(formData: FormData): Promise<RecordResult> {
   const textValue = formData.get('text');
   const amountValue = formData.get('amount');
   const categoryValue = formData.get('category');
-  const dateValue = formData.get('date'); // Extract date from formData
+  const dateValue = formData.get('date'); 
 
-  // Check for input values
   if (
     !textValue ||
     textValue === '' ||

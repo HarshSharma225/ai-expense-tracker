@@ -4,6 +4,7 @@ import ExpenseStats from '@/components/ExpenseStats';
 import Guest from '@/components/Guest';
 import RecordChart from '@/components/RecordChart';
 import RecordHistory from '@/components/RecordHistory';
+import { checkUser } from '@/lib/checkUser';
 import { currentUser } from '@clerk/nextjs/server';
 
 export default async function HomePage() {
@@ -11,6 +12,8 @@ export default async function HomePage() {
   if (!user) {
     return <Guest />;
   }
+
+  checkUser();
   return (
     <main className='bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans min-h-screen transition-colors duration-300'>
       {/* Mobile-optimized container with responsive padding */}
