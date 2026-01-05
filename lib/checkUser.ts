@@ -8,8 +8,7 @@ export const checkUser = async () => {
     console.log("no user fonud")
     return null;
   }
-
-  console.log(user)
+  
   const loggedInUser = await db.user.findUnique({
     where: {
       clerkUserId: user.id,
