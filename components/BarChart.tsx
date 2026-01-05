@@ -76,7 +76,7 @@ const BarChart = ({ records }: { records: Record[] }) => {
         dateMap.set(dateKey, {
           total: record.amount,
           categories: [record.category],
-          originalDate: record.date, // Keep original ISO date for sorting
+          originalDate: record.date,
         });
       }
     });
@@ -124,7 +124,6 @@ const BarChart = ({ records }: { records: Record[] }) => {
   // Prepare data for the chart
   const data = {
     labels: aggregatedData.map((item) => {
-      // Format date as MM/DD for better readability
       const [, month, day] = item.date.split('-');
       return `${day}/${month}`;
     }),
@@ -170,7 +169,7 @@ const BarChart = ({ records }: { records: Record[] }) => {
               item.categories.length > 1
                 ? `Categories: ${item.categories.join(', ')}`
                 : `Category: ${item.categories[0]}`;
-            return [`Total: $${item.amount.toFixed(2)}`, categoriesText];
+            return [`Total: ₹${item.amount.toFixed(2)}`, categoriesText];
           },
         },
       },
@@ -201,26 +200,26 @@ const BarChart = ({ records }: { records: Record[] }) => {
       y: {
         title: {
           display: true,
-          text: 'Amount ($)',
+          text: 'Amount (₹)',
           font: {
-            size: isMobile ? 12 : 16, // Smaller font on mobile
+            size: isMobile ? 12 : 16, 
             weight: 'bold' as const,
           },
           color: isDark ? '#d1d5db' : '#2c3e50',
         },
         ticks: {
           font: {
-            size: isMobile ? 10 : 12, // Smaller font on mobile
+            size: isMobile ? 10 : 12, 
           },
-          color: isDark ? '#9ca3af' : '#7f8c8d', // Gray y-axis labels
+          color: isDark ? '#9ca3af' : '#7f8c8d', 
           callback: function (value: string | number) {
-            return '$' + value; // Add dollar sign to y-axis labels
+            return '₹' + value; 
           },
         },
         grid: {
-          color: isDark ? '#374151' : '#e0e0e0', // Dark mode grid lines
+          color: isDark ? '#374151' : '#e0e0e0',
         },
-        beginAtZero: true, // Start y-axis at zero for expenses
+        beginAtZero: true, 
       },
     },
   };
