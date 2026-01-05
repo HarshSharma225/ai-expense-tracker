@@ -18,7 +18,6 @@ const openai = new OpenAI({
 });
 
 
-
 export interface ExpenseRecord {
   id: string;
   amount: number;
@@ -67,10 +66,10 @@ export async function generateExpenseInsights(
     3. Money-saving opportunities
     4. Positive reinforcement for good habits
 
-    Return only valid JSON array, no additional text.`;
+    Return only valid JSON array, no additional text.The amount is in Rupees`;
 
     const completion = await openai.chat.completions.create({
-      model: "google/gemma-3n-e4b-it:free",
+      model: "xiaomi/mimo-v2-flash:free",
       messages: [
         {
           role: 'system',
@@ -140,7 +139,7 @@ export async function generateExpenseInsights(
 export async function categorizeExpense(description: string): Promise<string> {
   try {
     const completion = await openai.chat.completions.create({
-      model: 'deepseek/deepseek-chat-v3-0324:free',
+      model: "xiaomi/mimo-v2-flash:free",
       messages: [
         {
           role: 'system',
@@ -204,7 +203,7 @@ export async function generateAIAnswer(
     Return only the answer text, no additional formatting.`;
 
     const completion = await openai.chat.completions.create({
-      model: 'deepseek/deepseek-chat-v3-0324:free',
+      model: "xiaomi/mimo-v2-flash:free",
       messages: [
         {
           role: 'system',
