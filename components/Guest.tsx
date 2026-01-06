@@ -202,7 +202,7 @@ const Guest = () => {
                   </div>
                 </div>
                 <p className='text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4'>
-                  &ldquo;ExpenseTracker AI has completely transformed my
+                  &ldquo;Expense Tracker has completely transformed my
                   budgeting. The AI insights are incredibly helpful and I now
                   have full control over my finances!&rdquo;
                 </p>
@@ -231,7 +231,7 @@ const Guest = () => {
                   </div>
                 </div>
                 <p className='text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4'>
-                  &ldquo;The AI-powered insights from ExpenseTracker have helped
+                  &ldquo;The AI-powered insights from Expense Tracker have helped
                   me identify and reduce unnecessary spending. The smart
                   categorization is amazing!&rdquo;
                 </p>
@@ -260,7 +260,7 @@ const Guest = () => {
                   </div>
                 </div>
                 <p className='text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4'>
-                  &ldquo;ExpenseTracker AI is so intelligent and easy to use.
+                  &ldquo;Expense Tracker is so intelligent and easy to use.
                   The AI recommendations are spot-on and have genuinely improved
                   my financial habits!&rdquo;
                 </p>
