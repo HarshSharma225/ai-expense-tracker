@@ -11,7 +11,6 @@ export async function getAIInsights(): Promise<AIInsight[]> {
       throw new Error('User not authenticated');
     }
 
-    // Get user's recent expenses (last 30 days)
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
@@ -25,16 +24,15 @@ export async function getAIInsights(): Promise<AIInsight[]> {
       orderBy: {
         createdAt: 'desc',
       },
-      take: 50, // Limit to recent 50 expenses for analysis
+      take: 50, 
     });
 
     if (expenses.length === 0) {
-      // Return default insights for new users
       return [
         {
           id: 'welcome-1',
           type: 'info',
-          title: 'Welcome to ExpenseTracker AI!',
+          title: 'Welcome to ExpenseTracker!',
           message:
             'Start adding your expenses to get personalized AI insights about your spending patterns.',
           action: 'Add your first expense',
@@ -52,7 +50,6 @@ export async function getAIInsights(): Promise<AIInsight[]> {
       ];
     }
 
-    // Convert to format expected by AI
     const expenseData: ExpenseRecord[] = expenses.map((expense) => ({
       id: expense.id,
       amount: expense.amount,
