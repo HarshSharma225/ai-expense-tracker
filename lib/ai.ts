@@ -69,7 +69,7 @@ export async function generateExpenseInsights(
     Return only valid JSON array, no additional text.The amount is in Rupees`;
 
     const completion = await openai.chat.completions.create({
-      model: "xiaomi/mimo-v2-flash:free",
+      model: "openrouter/free",
       messages: [
         {
           role: 'system',
@@ -139,7 +139,7 @@ export async function generateExpenseInsights(
 export async function categorizeExpense(description: string): Promise<string> {
   try {
     const completion = await openai.chat.completions.create({
-      model: "xiaomi/mimo-v2-flash:free",
+      model: "openrouter/free",
       messages: [
         {
           role: 'system',
@@ -203,7 +203,7 @@ export async function generateAIAnswer(
     Return only the answer text, no additional formatting.`;
 
     const completion = await openai.chat.completions.create({
-      model: "xiaomi/mimo-v2-flash:free",
+      model: "openrouter/free",
       messages: [
         {
           role: 'system',

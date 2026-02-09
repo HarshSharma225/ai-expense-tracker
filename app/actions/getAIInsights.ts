@@ -8,7 +8,8 @@ export async function getAIInsights(): Promise<AIInsight[]> {
   try {
     const user = await checkUser();
     if (!user) {
-      throw new Error('User not authenticated');
+      console.warn("No user found, skipping AI insights");
+    return []
     }
 
     const thirtyDaysAgo = new Date();

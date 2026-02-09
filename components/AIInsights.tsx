@@ -29,6 +29,9 @@ const AIInsights = () => {
     setIsLoading(true);
     try {
       const newInsights = await getAIInsights();
+      if (!Array.isArray(newInsights)) {
+        throw new Error('Invalid AI insights response');
+      }
       setInsights(newInsights);
       setLastUpdated(new Date());
     } catch (error) {
